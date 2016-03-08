@@ -7,10 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B4942571C8EAF67007F273A /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942511C8EAF67007F273A /* Other.swift */; };
+		8B4942581C8EAF67007F273A /* STStandardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942521C8EAF67007F273A /* STStandardExtensions.swift */; };
+		8B4942591C8EAF67007F273A /* STMultiThreadingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942531C8EAF67007F273A /* STMultiThreadingExtensions.swift */; };
+		8B49425A1C8EAF67007F273A /* STCoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */; };
+		8B49425B1C8EAF67007F273A /* STCloudKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */; };
+		8B49425C1C8EAF67007F273A /* STDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942561C8EAF67007F273A /* STDataSet.swift */; };
 		8B9143601C8EA5A70088C8F5 /* SwiftTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B4942511C8EAF67007F273A /* Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Other.swift; path = Misc/Other.swift; sourceTree = "<group>"; };
+		8B4942521C8EAF67007F273A /* STStandardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STStandardExtensions.swift; path = Extensions/STStandardExtensions.swift; sourceTree = "<group>"; };
+		8B4942531C8EAF67007F273A /* STMultiThreadingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STMultiThreadingExtensions.swift; path = Extensions/STMultiThreadingExtensions.swift; sourceTree = "<group>"; };
+		8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STCoreDataExtensions.swift; path = Extensions/STCoreDataExtensions.swift; sourceTree = "<group>"; };
+		8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STCloudKitExtensions.swift; path = Extensions/STCloudKitExtensions.swift; sourceTree = "<group>"; };
+		8B4942561C8EAF67007F273A /* STDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STDataSet.swift; path = DataSet/STDataSet.swift; sourceTree = "<group>"; };
 		8B91435C1C8EA5A70088C8F5 /* SwiftTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTools.h; sourceTree = "<group>"; };
 		8B9143611C8EA5A70088C8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +39,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B49424F1C8EAF04007F273A /* Data Set Comparison */ = {
+			isa = PBXGroup;
+			children = (
+				8B4942561C8EAF67007F273A /* STDataSet.swift */,
+			);
+			name = "Data Set Comparison";
+			sourceTree = "<group>";
+		};
+		8B4942501C8EAF19007F273A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B4942521C8EAF67007F273A /* STStandardExtensions.swift */,
+				8B4942531C8EAF67007F273A /* STMultiThreadingExtensions.swift */,
+				8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */,
+				8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		8B9143521C8EA5A70088C8F5 = {
 			isa = PBXGroup;
 			children = (
@@ -47,6 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */,
+				8B4942501C8EAF19007F273A /* Extensions */,
+				8B49424F1C8EAF04007F273A /* Data Set Comparison */,
+				8B4942511C8EAF67007F273A /* Other.swift */,
 				8B9143611C8EA5A70088C8F5 /* Info.plist */,
 			);
 			path = SwiftTools;
@@ -130,6 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B49425B1C8EAF67007F273A /* STCloudKitExtensions.swift in Sources */,
+				8B49425C1C8EAF67007F273A /* STDataSet.swift in Sources */,
+				8B4942571C8EAF67007F273A /* Other.swift in Sources */,
+				8B4942591C8EAF67007F273A /* STMultiThreadingExtensions.swift in Sources */,
+				8B4942581C8EAF67007F273A /* STStandardExtensions.swift in Sources */,
+				8B49425A1C8EAF67007F273A /* STCoreDataExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +268,7 @@
 		8B9143651C8EA5A70088C8F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -238,12 +279,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.SwiftTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8B9143661C8EA5A70088C8F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -276,6 +319,7 @@
 				8B9143661C8EA5A70088C8F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

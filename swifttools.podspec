@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "swifttools"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "Tools to make Swift that much more fun"
 
   # This description is used to generate tags and improve search results.
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios, "8.1"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/jwitcig/SwiftTools.git", :tag => "1.0.3" }
+  s.source       = { :git => "https://github.com/jwitcig/SwiftTools.git", :tag => "1.0.4" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

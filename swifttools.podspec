@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "swifttools"
-  s.version      = "1.0.4"
+  s.name         = "SwiftTools"
+  s.version      = "1.0.5"
   s.summary      = "Tools to make Swift that much more fun"
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/jwitcig/SwiftTools.git", :tag => "1.0.4" }
+  s.source       = { :git => "https://github.com/jwitcig/SwiftTools.git", :tag => "1.0.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

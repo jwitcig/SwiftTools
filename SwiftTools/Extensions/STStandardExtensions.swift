@@ -14,11 +14,11 @@
 
 
 public extension Array {
-    subscript (safe index: Int) -> Element? {
+    public subscript (safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 
-    subscript (safe range: Range<Int>) -> [Element]? {
+    public subscript (safe range: Range<Int>) -> [Element]? {
         var elements = [Element]()
         for index in range {
             if let element = self[safe: index] {
@@ -34,11 +34,11 @@ public extension Array {
 
 public extension NSDate {
 
-    func isBefore(date date: NSDate) -> Bool {
+    public func isBefore(date date: NSDate) -> Bool {
         return self.compare(date) == .OrderedAscending
     }
 
-    func isSameDay(date date: NSDate) -> Bool {
+    public func isSameDay(date date: NSDate) -> Bool {
         return self.compare(date) == .OrderedSame
     }
 
@@ -64,7 +64,7 @@ public extension NSDate {
         return dates.sort { $0.0.isBefore(date: $0.1) }
     }
 
-    func isBetween(firstDate firstDate: NSDate, secondDate: NSDate, inclusive: Bool) -> Bool {
+    public func isBetween(firstDate firstDate: NSDate, secondDate: NSDate, inclusive: Bool) -> Bool {
         if self.isSameDay(date: firstDate) || self.isSameDay(date: secondDate) {
             if inclusive { return true }
             else { return false }
@@ -76,7 +76,7 @@ public extension NSDate {
 
 public extension NSPredicate {
 
-    class var allRows: NSPredicate {
+    public class var allRows: NSPredicate {
         return NSPredicate(value: true)
     }
 
@@ -105,7 +105,7 @@ public extension NSSortDescriptor {
 }
 
 public extension NSUserDefaults {
-    subscript(key: String) -> AnyObject? {
+    public subscript(key: String) -> AnyObject? {
         return self.valueForKey(key)
     }
 }
@@ -116,7 +116,7 @@ public extension Set {
 
 public extension String {
 
-    var range: Range<String.Index> {
+    public var range: Range<String.Index> {
         return Range<String.Index>(start: self.startIndex, end: self.endIndex)
     }
 

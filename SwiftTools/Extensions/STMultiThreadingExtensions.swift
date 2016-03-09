@@ -16,18 +16,18 @@ let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERAC
 let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
 let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.rawValue), 0)
 
-func runOnMainThread(block: (()->())) {
+public func runOnMainThread(block: (()->())) {
     dispatch_async(dispatch_get_main_queue(), block)
 }
 
-func runOnUserInteractiveThread(block: (()->())) {
+public func runOnUserInteractiveThread(block: (()->())) {
     dispatch_async(userInteractiveThread, block)
 }
 
-func runOnUserInitiatedThread(block: (()->())) {
+public func runOnUserInitiatedThread(block: (()->())) {
     dispatch_async(userInitiatedThread, block)
 }
 
-func runOnBackgroundThread(block: (()->())) {
+public func runOnBackgroundThread(block: (()->())) {
     dispatch_async(backgroundThread, block)
 }

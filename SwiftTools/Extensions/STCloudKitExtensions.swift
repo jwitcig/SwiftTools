@@ -55,3 +55,16 @@ public extension CollectionType where Generator.Element : CKReference {
 
     public var recordIDs: [CKRecordID] { return map { $0.recordID } }
 }
+
+public extension CollectionType where Generator.Element : CKNotification {
+    
+    public var notificationIDs: [CKNotificationID] {
+        var IDs = [CKNotificationID]()
+        forEach {
+            if let notificationID = $0.notificationID {
+                IDs.append(notificationID)
+            }
+        }
+        return IDs
+    }
+}

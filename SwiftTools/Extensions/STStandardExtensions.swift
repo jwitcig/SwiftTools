@@ -30,6 +30,17 @@ public extension Array {
         }
         return elements
     }
+    
+}
+
+public extension Array where Element : Hashable {
+    public var unique: [Element] {
+        return self.set.array
+    }
+    
+    public var set: Set<Element> {
+        return Set(self)
+    }
 }
 
 public extension NSDate {

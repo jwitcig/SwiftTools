@@ -14,6 +14,19 @@
 
 import CoreData
 
+public extension NSManagedObject {
+    
+    public subscript(key: String) -> AnyObject? {
+        get {
+            return valueForKey(key)
+        }
+        set {
+            setValue(newValue, forKey: key)
+        }
+    }
+    
+}
+
 public extension NSManagedObjectContext {
 
     public convenience init(parentContext: NSManagedObjectContext? = nil) {
@@ -57,4 +70,10 @@ public extension NSManagedObjectContext {
 
     private static var threadContexts = [NSThread.mainThread(): NSManagedObjectContext(parentContext: nil)]
 
+}
+
+public extension CollectionType where Generator.Element: NSManagedObject {
+    public var objectIDs: [NSManagedObjectID] {
+        return map { $0.objectID }
+    }
 }

@@ -12,22 +12,22 @@
     import Cocoa
 #endif
 
-let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
-let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
-let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.rawValue), 0)
+let userInteractiveThread = DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes(rawValue: UInt64(Int(DispatchQueueAttributes.qosUserInteractive.rawValue))))
+let userInitiatedThread = DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes(rawValue: UInt64(Int(DispatchQueueAttributes.qosUserInitiated.rawValue))))
+let backgroundThread = DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes(rawValue: UInt64(Int(DispatchQueueAttributes.noQoS.rawValue))))
 
-public func runOnMainThread(block: (()->())) {
-    dispatch_async(dispatch_get_main_queue(), block)
+public func runOnMainThread(_ block: (()->())) {
+    DispatchQueue.main.async(execute: block)
 }
 
-public func runOnUserInteractiveThread(block: (()->())) {
-    dispatch_async(userInteractiveThread, block)
+public func runOnUserInteractiveThread(_ block: (()->())) {
+    userInteractiveThread.async(execute: block)
 }
 
-public func runOnUserInitiatedThread(block: (()->())) {
-    dispatch_async(userInitiatedThread, block)
+public func runOnUserInitiatedThread(_ block: (()->())) {
+    userInitiatedThread.async(execute: block)
 }
 
-public func runOnBackgroundThread(block: (()->())) {
-    dispatch_async(backgroundThread, block)
+public func runOnBackgroundThread(_ block: (()->())) {
+    backgroundThread.async(execute: block)
 }

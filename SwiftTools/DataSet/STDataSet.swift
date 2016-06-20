@@ -19,7 +19,7 @@ public enum PredicateComparator: String {
 }
 
 public enum Sort {
-    case Chronological
-    case ReverseChronological
+    case chronological
+    case reverseChronological
 }
 

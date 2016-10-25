@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftTools"
-  s.version          = "1.1.2"
+  s.version          = "1.1.3"
   s.summary          = "Tools for Swift development."
   s.homepage         = "https://github.com/jwitcig/SwiftTools"
   s.license          = 'Code is MIT.'
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '9.0'
   s.requires_arc = true
 
-  s.source_files = 'SwiftTools/Classes/*'
+  s.source_files = 'SwiftTools/Classes/**/*'
   s.resources = 'Pod/Assets/*'
 
   s.frameworks = 'UIKit'

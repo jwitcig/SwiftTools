@@ -7,27 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B45EC441DBF39F2009BC6F9 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EC431DBF39F2009BC6F9 /* Structs.swift */; };
-		8B45EC461DBF3A37009BC6F9 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EC451DBF3A37009BC6F9 /* Process.swift */; };
-		8B45EC481DBF3AA7009BC6F9 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EC471DBF3AA7009BC6F9 /* Section.swift */; };
-		8B4942581C8EAF67007F273A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942521C8EAF67007F273A /* Extensions.swift */; };
-		8B49425A1C8EAF67007F273A /* CoreData-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942541C8EAF67007F273A /* CoreData-Extensions.swift */; };
-		8B49425B1C8EAF67007F273A /* CloudKit-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942551C8EAF67007F273A /* CloudKit-Extensions.swift */; };
-		8B6F32A61DBFD87400A02754 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F32A51DBFD87400A02754 /* LocationHandler.swift */; };
 		8B9143601C8EA5A70088C8F5 /* SwiftTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BBA39A41DBFE202009A2C69 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 8BBA399F1DBFE202009A2C69 /* Extensions */; };
+		8BBA39A51DBFE202009A2C69 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */; };
+		8BBA39A61DBFE202009A2C69 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A11DBFE202009A2C69 /* Process.swift */; };
+		8BBA39A71DBFE202009A2C69 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A21DBFE202009A2C69 /* Section.swift */; };
+		8BBA39A81DBFE202009A2C69 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A31DBFE202009A2C69 /* Structs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B45EC431DBF39F2009BC6F9 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		8B45EC451DBF3A37009BC6F9 /* Process.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
-		8B45EC471DBF3AA7009BC6F9 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		8B4942521C8EAF67007F273A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions/Extensions.swift; sourceTree = "<group>"; };
-		8B4942541C8EAF67007F273A /* CoreData-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoreData-Extensions.swift"; path = "Extensions/CoreData-Extensions.swift"; sourceTree = "<group>"; };
-		8B4942551C8EAF67007F273A /* CloudKit-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CloudKit-Extensions.swift"; path = "Extensions/CloudKit-Extensions.swift"; sourceTree = "<group>"; };
-		8B6F32A51DBFD87400A02754 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		8B91435C1C8EA5A70088C8F5 /* SwiftTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTools.h; sourceTree = "<group>"; };
 		8B9143611C8EA5A70088C8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BBA399F1DBFE202009A2C69 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Extensions; path = Classes/Extensions; sourceTree = "<group>"; };
+		8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationHandler.swift; path = Classes/LocationHandler.swift; sourceTree = "<group>"; };
+		8BBA39A11DBFE202009A2C69 /* Process.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Process.swift; path = Classes/Process.swift; sourceTree = "<group>"; };
+		8BBA39A21DBFE202009A2C69 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Classes/Section.swift; sourceTree = "<group>"; };
+		8BBA39A31DBFE202009A2C69 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Structs.swift; path = Classes/Structs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,20 +37,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B4942501C8EAF19007F273A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8B4942521C8EAF67007F273A /* Extensions.swift */,
-				8B4942541C8EAF67007F273A /* CoreData-Extensions.swift */,
-				8B4942551C8EAF67007F273A /* CloudKit-Extensions.swift */,
-				8B45EC431DBF39F2009BC6F9 /* Structs.swift */,
-				8B45EC451DBF3A37009BC6F9 /* Process.swift */,
-				8B45EC471DBF3AA7009BC6F9 /* Section.swift */,
-				8B6F32A51DBFD87400A02754 /* LocationHandler.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		8B9143521C8EA5A70088C8F5 = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +56,12 @@
 		8B91435E1C8EA5A70088C8F5 /* SwiftTools */ = {
 			isa = PBXGroup;
 			children = (
+				8BBA399F1DBFE202009A2C69 /* Extensions */,
+				8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */,
+				8BBA39A11DBFE202009A2C69 /* Process.swift */,
+				8BBA39A21DBFE202009A2C69 /* Section.swift */,
+				8BBA39A31DBFE202009A2C69 /* Structs.swift */,
 				8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */,
-				8B4942501C8EAF19007F273A /* Extensions */,
 				8B9143611C8EA5A70088C8F5 /* Info.plist */,
 			);
 			path = SwiftTools;
@@ -150,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BBA39A41DBFE202009A2C69 /* Extensions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,13 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B45EC441DBF39F2009BC6F9 /* Structs.swift in Sources */,
-				8B49425B1C8EAF67007F273A /* CloudKit-Extensions.swift in Sources */,
-				8B4942581C8EAF67007F273A /* Extensions.swift in Sources */,
-				8B45EC481DBF3AA7009BC6F9 /* Section.swift in Sources */,
-				8B49425A1C8EAF67007F273A /* CoreData-Extensions.swift in Sources */,
-				8B6F32A61DBFD87400A02754 /* LocationHandler.swift in Sources */,
-				8B45EC461DBF3A37009BC6F9 /* Process.swift in Sources */,
+				8BBA39A81DBFE202009A2C69 /* Structs.swift in Sources */,
+				8BBA39A71DBFE202009A2C69 /* Section.swift in Sources */,
+				8BBA39A51DBFE202009A2C69 /* LocationHandler.swift in Sources */,
+				8BBA39A61DBFE202009A2C69 /* Process.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

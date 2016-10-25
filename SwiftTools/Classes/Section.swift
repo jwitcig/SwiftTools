@@ -8,7 +8,7 @@
 
 /* Section is a list with an assosiated object. */
 
-protocol Section: Sequence, IteratorProtocol {
+public protocol Section: Sequence, IteratorProtocol {
     associatedtype ListType
     
     var count: Int { get set }
@@ -18,7 +18,7 @@ protocol Section: Sequence, IteratorProtocol {
     init(elements: [ListType])
 }
 
-extension Section {
+public extension Section {
     init() {
         self.init()
         self.elements = []
@@ -34,3 +34,5 @@ extension Section {
         return elements[safe: count]
     }
 }
+
+

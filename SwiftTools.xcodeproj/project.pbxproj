@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		8B9143601C8EA5A70088C8F5 /* SwiftTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8BBA39A41DBFE202009A2C69 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 8BBA399F1DBFE202009A2C69 /* Extensions */; };
 		8BBA39A51DBFE202009A2C69 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */; };
 		8BBA39A61DBFE202009A2C69 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A11DBFE202009A2C69 /* Process.swift */; };
 		8BBA39A71DBFE202009A2C69 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A21DBFE202009A2C69 /* Section.swift */; };
 		8BBA39A81DBFE202009A2C69 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A31DBFE202009A2C69 /* Structs.swift */; };
+		8BBA39AC1DBFE542009A2C69 /* CloudKit-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A91DBFE542009A2C69 /* CloudKit-Extensions.swift */; };
+		8BBA39AD1DBFE542009A2C69 /* CoreData-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39AA1DBFE542009A2C69 /* CoreData-Extensions.swift */; };
+		8BBA39AE1DBFE542009A2C69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39AB1DBFE542009A2C69 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B91435C1C8EA5A70088C8F5 /* SwiftTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTools.h; sourceTree = "<group>"; };
 		8B9143611C8EA5A70088C8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BBA399F1DBFE202009A2C69 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Extensions; path = Classes/Extensions; sourceTree = "<group>"; };
 		8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationHandler.swift; path = Classes/LocationHandler.swift; sourceTree = "<group>"; };
 		8BBA39A11DBFE202009A2C69 /* Process.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Process.swift; path = Classes/Process.swift; sourceTree = "<group>"; };
 		8BBA39A21DBFE202009A2C69 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Classes/Section.swift; sourceTree = "<group>"; };
 		8BBA39A31DBFE202009A2C69 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Structs.swift; path = Classes/Structs.swift; sourceTree = "<group>"; };
+		8BBA39A91DBFE542009A2C69 /* CloudKit-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CloudKit-Extensions.swift"; path = "SwiftTools/Classes/Extensions/CloudKit-Extensions.swift"; sourceTree = "<group>"; };
+		8BBA39AA1DBFE542009A2C69 /* CoreData-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoreData-Extensions.swift"; path = "SwiftTools/Classes/Extensions/CoreData-Extensions.swift"; sourceTree = "<group>"; };
+		8BBA39AB1DBFE542009A2C69 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = SwiftTools/Classes/Extensions/Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,7 @@
 		8B91435E1C8EA5A70088C8F5 /* SwiftTools */ = {
 			isa = PBXGroup;
 			children = (
-				8BBA399F1DBFE202009A2C69 /* Extensions */,
+				8BBA39AF1DBFE546009A2C69 /* Extensions */,
 				8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */,
 				8BBA39A11DBFE202009A2C69 /* Process.swift */,
 				8BBA39A21DBFE202009A2C69 /* Section.swift */,
@@ -65,6 +69,17 @@
 				8B9143611C8EA5A70088C8F5 /* Info.plist */,
 			);
 			path = SwiftTools;
+			sourceTree = "<group>";
+		};
+		8BBA39AF1DBFE546009A2C69 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BBA39A91DBFE542009A2C69 /* CloudKit-Extensions.swift */,
+				8BBA39AA1DBFE542009A2C69 /* CoreData-Extensions.swift */,
+				8BBA39AB1DBFE542009A2C69 /* Extensions.swift */,
+			);
+			name = Extensions;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +151,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BBA39A41DBFE202009A2C69 /* Extensions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,10 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BBA39AD1DBFE542009A2C69 /* CoreData-Extensions.swift in Sources */,
 				8BBA39A81DBFE202009A2C69 /* Structs.swift in Sources */,
 				8BBA39A71DBFE202009A2C69 /* Section.swift in Sources */,
+				8BBA39AC1DBFE542009A2C69 /* CloudKit-Extensions.swift in Sources */,
 				8BBA39A51DBFE202009A2C69 /* LocationHandler.swift in Sources */,
 				8BBA39A61DBFE202009A2C69 /* Process.swift in Sources */,
+				8BBA39AE1DBFE542009A2C69 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +218,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -244,6 +262,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

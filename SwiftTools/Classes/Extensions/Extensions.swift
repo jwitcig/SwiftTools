@@ -15,11 +15,11 @@
 import MapKit
 
 public extension Array {
-    public subscript (safe index: Int) -> Element? {
+    public subscript(safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 
-    public subscript (safe range: Range<Int>) -> [Element]? {
+    public subscript(safe range: Range<Int>) -> [Element]? {
         let elements = (range.lowerBound...range.upperBound).map { self[safe: $0] }
         return elements.filter { $0 == nil }
             .count > 0 ? nil : elements.map { $0! }

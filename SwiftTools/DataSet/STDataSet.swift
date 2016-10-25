@@ -13,13 +13,12 @@
 #endif
 
 public enum PredicateComparator: String {
-    case Equals = "=="
-    case Contains = "CONTAINS"
-    case In = "IN"
+    case equals = "=="
+    case contains = "CONTAINS"
+    case containedIn = "IN"
 }
 
 public enum Sort {
-    case chronological
-    case reverseChronological
+    case chronological, reverseChronological
 }
 

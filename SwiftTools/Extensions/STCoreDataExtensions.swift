@@ -15,36 +15,20 @@
 import CoreData
 
 public extension NSManagedObject {
-    
     public subscript(key: String) -> AnyObject? {
-        get {
-            return value(forKey: key)
-        }
-        set {
-            setValue(newValue, forKey: key)
-        }
+        get { return value(forKey: key) as AnyObject? }
+        set { setValue(newValue, forKey: key) }
     }
-    
 }
 
 public extension NSManagedObjectContext {
-
     public convenience init(parentContext: NSManagedObjectContext? = nil) {
-        var selfObject: NSManagedObjectContext!
-        defer {
-//            NSNotificationCenter.defaultCenter().addObserver(selfObject, selector: Selector("managedObjectContextWillSave:"), name: NSManagedObjectContextWillSaveNotification, object: selfObject)
-//            NSNotificationCenter.defaultCenter().addObserver(selfObject, selector: Selector("managedObjectContextDidSave:"), name: NSManagedObjectContextDidSaveNotification, object: selfObject)
-        }
-
         guard let parentManagedObjectContext = parentContext else {
             self.init(concurrencyType: .mainQueueConcurrencyType)
-            selfObject = self
             return
         }
-
         self.init(concurrencyType: .privateQueueConcurrencyType)
         self.parent = parentManagedObjectContext
-        selfObject = self
     }
 
     public func crossContextEquivalent<T: NSManagedObject>(object: T) -> T {
@@ -52,28 +36,30 @@ public extension NSManagedObjectContext {
     }
 
     public func crossContextEquivalents<T: NSManagedObject>(objects: [T]) -> [T] {
-        return objects.map { self.crossContextEquivalent(object: $0) }
+        return objects.map { crossContextEquivalent(object: $0) }
     }
 
-    public class func contextForCurrentThread() -> NSManagedObjectContext {
-        return NSManagedObjectContext.contextForThread(Thread.current())
+    public class var currentThread: NSManagedObjectContext {
+        return NSManagedObjectContext.context(forThread: Thread.current)
+    }
+    
+    public class var mainThread: NSManagedObjectContext {
+        return NSManagedObjectContext.context(forThread: Thread.main)
     }
 
-    public class func contextForThread(_ thread: Thread) -> NSManagedObjectContext {
+    public class func context(forThread thread: Thread) -> NSManagedObjectContext {
         if let context = NSManagedObjectContext.threadContexts[thread] { return context }
 
-        let mainThreadContext = NSManagedObjectContext.contextForThread(Thread.main())
-        let newContext = NSManagedObjectContext(parentContext: mainThreadContext)
+        let newContext = NSManagedObjectContext(parentContext: .mainThread)
         NSManagedObjectContext.threadContexts[thread] = newContext
         return newContext
     }
 
-    private static var threadContexts = [Thread.main(): NSManagedObjectContext(parentContext: nil)]
-
+    private static var threadContexts = [Thread.main: NSManagedObjectContext(parentContext: nil)]
 }
 
 public extension Collection where Iterator.Element: NSManagedObject {
     public var objectIDs: [NSManagedObjectID] {
-        return map { $0.objectID }
+        return map {$0.objectID}
     }
 }

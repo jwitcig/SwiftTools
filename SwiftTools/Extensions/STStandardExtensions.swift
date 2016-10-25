@@ -12,30 +12,20 @@
     import Cocoa
 #endif
 
-
 public extension Array {
     public subscript (safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 
-//    public subscript (safe range: Range<Int>) -> [Element]? {
-//        var elements = [Element]()
-//        for index in range {
-//            if let element = self[safe: index] {
-//                elements.append(element)
-//            } else {
-//                return nil
-//            }
-//
-//        }
-//        return elements
-//    }
-    
+    public subscript (safe range: Range<Int>) -> [Element]? {
+        let elements = (range.lowerBound...range.upperBound).map { self[safe: $0] }
+        return elements.filter{$0==nil}.count > 0 ? nil : elements.map{$0!}
+    }
 }
 
 public extension Array where Element : Hashable {
     public var unique: [Element] {
-        return self.set.array
+        return set.array
     }
     
     public var set: Set<Element> {
@@ -44,31 +34,30 @@ public extension Array where Element : Hashable {
 }
 
 public extension Date {
-
     public func isBefore(date: Date) -> Bool {
-        return self.compare(date) == .orderedAscending
+        return compare(date) == .orderedAscending
     }
 
     public func isSameDay(date: Date) -> Bool {
-        return self.compare(date) == .orderedSame
+        return compare(date) == .orderedSame
     }
 
-    public static func daysBetween(startDate: Date, endDate: Date) -> Int {
-        let calendar = Calendar(calendarIdentifier: Calendar.Identifier.gregorian)!
-        let dateComponents = calendar.components(.day, from: startDate, to: endDate, options: Calendar.Options())
-        return dateComponents.day!
+    public static func daysBetween(start: Date, end: Date) -> Int {
+        return Calendar(identifier: Calendar.Identifier.gregorian)
+                .dateComponents([.day].set, from: start, to: end)
+                .day!
     }
 
     public func daysBetween(endDate: Date) -> Int {
-        return Date.daysBetween(startDate: self, endDate: endDate)
+        return Date.daysBetween(start: self, end: endDate)
     }
 
     public static func daysBeforeToday(originalDate: Date) -> Int {
-        return originalDate.daysBeforeToday()
+        return originalDate.daysBeforeToday
     }
 
-    public func daysBeforeToday() -> Int {
-        return Date.daysBetween(startDate: self, endDate: Date())
+    public var daysBeforeToday: Int {
+        return Date.daysBetween(start: self, end: Date())
     }
 
     static func sorted(dates: [Date]) -> [Date] {
@@ -76,19 +65,17 @@ public extension Date {
     }
 
     public func isBetween(firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
-        if self.isSameDay(date: firstDate) || self.isSameDay(date: secondDate) {
+        if isSameDay(date: firstDate) || isSameDay(date: secondDate) {
             if inclusive { return true }
             else { return false }
         }
-        return firstDate.isBefore(date: self) && self.isBefore(date: secondDate)
+        return firstDate.isBefore(date: self) && isBefore(date: secondDate)
     }
-
 }
 
-public extension Predicate {
-
-    public class var allRows: Predicate {
-        return Predicate(value: true)
+public extension NSPredicate {
+    public class var all: NSPredicate {
+        return NSPredicate(value: true)
     }
 
     public convenience init(key: String, comparator: PredicateComparator, value comparisonValue: AnyObject?) {
@@ -96,14 +83,11 @@ public extension Predicate {
             self.init(format: "\(key) \(comparator.rawValue) nil")
             return
         }
-
         self.init(format: "\(key) \(comparator.rawValue) %@", argumentArray: [value])
     }
-
 }
 
-public extension SortDescriptor {
-
+public extension NSSortDescriptor {
     public convenience init(key: String, order: Sort) {
         switch order {
         case .chronological:
@@ -112,17 +96,18 @@ public extension SortDescriptor {
             self.init(key: key, ascending: false)
         }
     }
-
 }
 
 public extension UserDefaults {
     public subscript(key: String) -> AnyObject? {
-        return self.value(forKey: key)
+        return self.value(forKey: key) as AnyObject?
     }
 }
 
 public extension Set {
-    public var array: [Iterator.Element] { return Array(self) }
+    public var array: [Iterator.Element] {
+        return Array(self)
+    }
 }
 
 public extension String {

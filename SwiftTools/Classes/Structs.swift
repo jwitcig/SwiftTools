@@ -7,9 +7,9 @@
 //
 
 public struct AlternativeRepresentation {
-    var values = [String: Any?]()
+    public var values = [String: Any?]()
     
-    var dictionary: [String: Any] {
+    public var dictionary: [String: Any] {
         return values.reduce([:], { (result, pair: (key: String, value: Any?)) in
             var dict = result
             
@@ -20,11 +20,11 @@ public struct AlternativeRepresentation {
         })
     }
     
-    init(values: [String: Any?]) {
+    public init(values: [String: Any?]) {
         self.values = values
     }
     
-    subscript(key: String) -> Any? {
+    public subscript(key: String) -> Any? {
         get { return values[key] }
         set { values[key] = newValue }
     }

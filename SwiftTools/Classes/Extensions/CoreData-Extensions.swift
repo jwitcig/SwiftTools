@@ -15,14 +15,14 @@
 import CoreData
 
 public extension NSManagedObject {
-    public subscript(key: String) -> AnyObject? {
+    subscript(key: String) -> AnyObject? {
         get { return value(forKey: key) as AnyObject? }
         set { setValue(newValue, forKey: key) }
     }
 }
 
 public extension NSManagedObjectContext {
-    public convenience init(parentContext: NSManagedObjectContext? = nil) {
+    convenience init(parentContext: NSManagedObjectContext? = nil) {
         guard let parentManagedObjectContext = parentContext else {
             self.init(concurrencyType: .mainQueueConcurrencyType)
             return
@@ -31,23 +31,23 @@ public extension NSManagedObjectContext {
         self.parent = parentManagedObjectContext
     }
 
-    public func crossContextEquivalent<T: NSManagedObject>(object: T) -> T {
+    func crossContextEquivalent<T: NSManagedObject>(object: T) -> T {
         return self.object(with: object.objectID) as! T
     }
 
-    public func crossContextEquivalents<T: NSManagedObject>(objects: [T]) -> [T] {
+    func crossContextEquivalents<T: NSManagedObject>(objects: [T]) -> [T] {
         return objects.map { crossContextEquivalent(object: $0) }
     }
 
-    public class var currentThread: NSManagedObjectContext {
+    class var currentThread: NSManagedObjectContext {
         return NSManagedObjectContext.context(forThread: Thread.current)
     }
     
-    public class var mainThread: NSManagedObjectContext {
+    class var mainThread: NSManagedObjectContext {
         return NSManagedObjectContext.context(forThread: Thread.main)
     }
 
-    public class func context(forThread thread: Thread) -> NSManagedObjectContext {
+    class func context(forThread thread: Thread) -> NSManagedObjectContext {
         if let context = NSManagedObjectContext.threadContexts[thread] { return context }
 
         let newContext = NSManagedObjectContext(parentContext: .mainThread)
@@ -59,7 +59,7 @@ public extension NSManagedObjectContext {
 }
 
 public extension Collection where Iterator.Element: NSManagedObject {
-    public var objectIDs: [NSManagedObjectID] {
+    var objectIDs: [NSManagedObjectID] {
         return map {$0.objectID}
     }
 }

@@ -15,11 +15,11 @@
 import MapKit
 
 public extension Array {
-    public subscript(safe index: Int) -> Element? {
+    subscript(safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 
-    public subscript(safe range: Range<Int>) -> [Element]? {
+    subscript(safe range: Range<Int>) -> [Element]? {
         let elements = (range.lowerBound...range.upperBound).map { self[safe: $0] }
         return elements.filter { $0 == nil }
             .count > 0 ? nil : elements.map { $0! }
@@ -27,51 +27,51 @@ public extension Array {
 }
 
 public extension Array where Element : Hashable {
-    public var unique: [Element] {
+    var unique: [Element] {
         return set.array
     }
     
-    public var set: Set<Element> {
+    var set: Set<Element> {
         return Set(self)
     }
 }
 
 public extension Date {
-    public func isBefore(date: Date) -> Bool {
+    func isBefore(date: Date) -> Bool {
         return compare(date) == .orderedAscending
     }
     
-    public func isAfter(date: Date) -> Bool {
+    func isAfter(date: Date) -> Bool {
         return compare(date) == .orderedAscending
     }
 
-    public func isSameDay(date: Date) -> Bool {
+    func isSameDay(date: Date) -> Bool {
         return compare(date) == .orderedSame
     }
 
-    public static func daysBetween(start: Date, end: Date) -> Int {
+    static func daysBetween(start: Date, end: Date) -> Int {
         return Calendar(identifier: Calendar.Identifier.gregorian)
                 .dateComponents([Calendar.Component.day].set, from: start, to: end)
                 .day!
     }
 
-    public func daysBetween(endDate: Date) -> Int {
+    func daysBetween(endDate: Date) -> Int {
         return Date.daysBetween(start: self, end: endDate)
     }
 
-    public static func daysBeforeToday(originalDate: Date) -> Int {
+    static func daysBeforeToday(originalDate: Date) -> Int {
         return originalDate.daysBeforeToday
     }
 
-    public var daysBeforeToday: Int {
+    var daysBeforeToday: Int {
         return Date.daysBetween(start: self, end: Date())
     }
 
-    static func sorted(dates: [Date]) -> [Date] {
+    func sorted(dates: [Date]) -> [Date] {
         return dates.sorted { $0.0.isBefore(date: $0.1) }
     }
 
-    public func isBetween(firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
+    func isBetween(firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
         return isSameDay(date: firstDate) || isSameDay(date: secondDate)
             ? inclusive
             : firstDate.isBefore(date: self) && secondDate.isAfter(date: self)
@@ -79,17 +79,17 @@ public extension Date {
 }
 
 public extension NSPredicate {
-    public enum Comparator: String {
+    enum Comparator: String {
         case equals = "=="
         case contains = "CONTAINS"
         case containedIn = "IN"
     }
     
-    public class var all: NSPredicate {
+    class var all: NSPredicate {
         return NSPredicate(value: true)
     }
 
-    public convenience init(key: String, comparator: Comparator, value comparisonValue: AnyObject?) {
+    convenience init(key: String, comparator: Comparator, value comparisonValue: AnyObject?) {
         guard let value = comparisonValue else {
             self.init(format: "\(key) \(comparator.rawValue) nil")
             return
@@ -99,11 +99,11 @@ public extension NSPredicate {
 }
 
 public extension NSSortDescriptor {
-    public enum Sort {
+    enum Sort {
         case chronological, reverseChronological
     }
     
-    public convenience init(key: String, order: Sort) {
+    convenience init(key: String, order: Sort) {
         switch order {
         case .chronological:
             self.init(key: key, ascending: true)
@@ -114,13 +114,13 @@ public extension NSSortDescriptor {
 }
 
 public extension UserDefaults {
-    public subscript(key: String) -> AnyObject? {
+    subscript(key: String) -> AnyObject? {
         return value(forKey: key) as AnyObject?
     }
 }
 
 public extension Set {
-    public var array: [Iterator.Element] {
+    var array: [Iterator.Element] {
         return Array(self)
     }
 }
@@ -136,7 +136,7 @@ public extension NSLayoutConstraint {
 }
 
 public extension UITextView {
-    public func recalculateVerticalAlignment() {
+    func recalculateVerticalAlignment() {
         let calculatedY = (bounds.size.height - contentSize.height * zoomScale) / 2.0
         contentInset = UIEdgeInsets(top: calculatedY < 0 ? 0 : calculatedY, left: 0, bottom: 0, right: 0)
     }
@@ -149,11 +149,11 @@ public extension MKMapView {
 }
 
 public extension String {
-    public func isBefore(_ toString: String) -> Bool {
+    func isBefore(_ toString: String) -> Bool {
         return compare(toString) == .orderedAscending
     }
     
-    public func isAfter(_ toString: String) -> Bool {
+    func isAfter(_ toString: String) -> Bool {
         return compare(toString) == .orderedDescending
     }
 }

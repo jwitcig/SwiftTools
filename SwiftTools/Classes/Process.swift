@@ -54,9 +54,9 @@ public extension Sequence where Iterator.Element == ProcessItem {
 }
 
 public class Process {
-    let items: [ProcessItem]
+    public let items: [ProcessItem]
     
-    var current: ProcessItem {
+    public var current: ProcessItem {
         didSet {
             formSwitched(current)
         }
@@ -67,7 +67,7 @@ public class Process {
     let fillCompletionView: ()->()      // block for filling out the .final completion view
     let completion: ()->()              // all forms complete, current for is .final form
     
-    init(items: [ProcessItem], formChanged: @escaping (ProcessItem)->(),
+    public init(items: [ProcessItem], formChanged: @escaping (ProcessItem)->(),
          formSwitched: @escaping (ProcessItem)->(),
          fillCompletionView: @escaping ()->(),
          completion: @escaping ()->()) {
@@ -83,7 +83,7 @@ public class Process {
         }
     }
     
-    func next() {
+    public func next() {
         let newIndex = current.index + 1
         
         if newIndex < items.count {
@@ -97,15 +97,13 @@ public class Process {
         }
     }
     
-    func previous() {
+    public func previous() {
         let newIndex = current.index > 0 ? current.index - 1 : 0
         current = items[newIndex]
     }
     
-    func reset() {
-        if let first = items.first {
-            current = first
-        }
+    public func reset() {
+        current = items.first ?? current
         items.forEach { $0.clearForm() }
     }
 }

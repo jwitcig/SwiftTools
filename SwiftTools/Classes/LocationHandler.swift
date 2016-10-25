@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-class LocationHandler: NSObject {
+public class LocationHandler: NSObject {
     static let shared = LocationHandler()
     
     lazy var manager: CLLocationManager = {
@@ -37,13 +37,13 @@ class LocationHandler: NSObject {
 }
 
 extension LocationHandler: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first
         
         completionHandler?(location, nil)
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         completionHandler?(nil, error as NSError?)
     }
 }

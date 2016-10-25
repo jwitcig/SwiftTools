@@ -6,7 +6,7 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
-struct AlternativeRepresentation {
+public struct AlternativeRepresentation {
     var values = [String: Any?]()
     
     var dictionary: [String: Any] {

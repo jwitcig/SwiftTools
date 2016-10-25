@@ -6,18 +6,18 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
-enum ProcessFormType: Int {
+public enum ProcessFormType: Int {
     case name, message, image, final
 }
 
-protocol ProcessHandler {
+public protocol ProcessHandler {
     var process: Process { get set }
     
     func move(to item: ProcessItem)
     func updated(form: ProcessItem)
 }
 
-protocol ProcessItem: class {
+public protocol ProcessItem: class {
     var type: ProcessFormType { get }
     
     var process: Process? { get set }
@@ -33,7 +33,7 @@ protocol ProcessItem: class {
     func dismissKeyboard()
 }
 
-extension ProcessItem {
+public extension ProcessItem {
     var index: Int {
         return type.rawValue
     }
@@ -47,13 +47,13 @@ extension ProcessItem {
     }
 }
 
-extension Sequence where Iterator.Element == ProcessItem {
+public extension Sequence where Iterator.Element == ProcessItem {
     var sortedByIndex: [ProcessItem] {
         return self.sorted { $0.0.index < $0.1.index }
     }
 }
 
-class Process {
+public class Process {
     let items: [ProcessItem]
     
     var current: ProcessItem {

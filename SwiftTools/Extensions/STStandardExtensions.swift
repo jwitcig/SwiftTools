@@ -12,30 +12,20 @@
     import Cocoa
 #endif
 
-
 public extension Array {
     public subscript (safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 
     public subscript (safe range: Range<Int>) -> [Element]? {
-        var elements = [Element]()
-        for index in range {
-            if let element = self[safe: index] {
-                elements.append(element)
-            } else {
-                return nil
-            }
-
-        }
-        return elements
+        let elements = (range.lowerBound...range.upperBound).map { self[safe: $0] }
+        return elements.filter{$0==nil}.count > 0 ? nil : elements.map{$0!}
     }
-    
 }
 
 public extension Array where Element : Hashable {
     public var unique: [Element] {
-        return self.set.array
+        return set.array
     }
     
     public var set: Set<Element> {
@@ -43,51 +33,48 @@ public extension Array where Element : Hashable {
     }
 }
 
-public extension NSDate {
-
-    public func isBefore(date date: NSDate) -> Bool {
-        return self.compare(date) == .OrderedAscending
+public extension Date {
+    public func isBefore(date: Date) -> Bool {
+        return compare(date) == .orderedAscending
     }
 
-    public func isSameDay(date date: NSDate) -> Bool {
-        return self.compare(date) == .OrderedSame
+    public func isSameDay(date: Date) -> Bool {
+        return compare(date) == .orderedSame
     }
 
-    public class func daysBetween(startDate startDate: NSDate, endDate: NSDate) -> Int {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let dateComponents = calendar.components(.Day, fromDate: startDate, toDate: endDate, options: NSCalendarOptions())
-        return dateComponents.day
+    public static func daysBetween(start: Date, end: Date) -> Int {
+        return Calendar(identifier: Calendar.Identifier.gregorian)
+                .dateComponents([.day].set, from: start, to: end)
+                .day!
     }
 
-    public func daysBetween(endDate endDate: NSDate) -> Int {
-        return NSDate.daysBetween(startDate: self, endDate: endDate)
+    public func daysBetween(endDate: Date) -> Int {
+        return Date.daysBetween(start: self, end: endDate)
     }
 
-    public class func daysBeforeToday(originalDate originalDate: NSDate) -> Int {
-        return originalDate.daysBeforeToday()
+    public static func daysBeforeToday(originalDate: Date) -> Int {
+        return originalDate.daysBeforeToday
     }
 
-    public func daysBeforeToday() -> Int {
-        return NSDate.daysBetween(startDate: self, endDate: NSDate())
+    public var daysBeforeToday: Int {
+        return Date.daysBetween(start: self, end: Date())
     }
 
-    class func sorted(dates dates: [NSDate]) -> [NSDate] {
-        return dates.sort { $0.0.isBefore(date: $0.1) }
+    static func sorted(dates: [Date]) -> [Date] {
+        return dates.sorted { $0.0.isBefore(date: $0.1) }
     }
 
-    public func isBetween(firstDate firstDate: NSDate, secondDate: NSDate, inclusive: Bool) -> Bool {
-        if self.isSameDay(date: firstDate) || self.isSameDay(date: secondDate) {
+    public func isBetween(firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
+        if isSameDay(date: firstDate) || isSameDay(date: secondDate) {
             if inclusive { return true }
             else { return false }
         }
-        return firstDate.isBefore(date: self) && self.isBefore(date: secondDate)
+        return firstDate.isBefore(date: self) && isBefore(date: secondDate)
     }
-
 }
 
 public extension NSPredicate {
-
-    public class var allRows: NSPredicate {
+    public class var all: NSPredicate {
         return NSPredicate(value: true)
     }
 
@@ -96,43 +83,41 @@ public extension NSPredicate {
             self.init(format: "\(key) \(comparator.rawValue) nil")
             return
         }
-
         self.init(format: "\(key) \(comparator.rawValue) %@", argumentArray: [value])
     }
-
 }
 
 public extension NSSortDescriptor {
-
     public convenience init(key: String, order: Sort) {
         switch order {
-        case .Chronological:
+        case .chronological:
             self.init(key: key, ascending: true)
-        case .ReverseChronological:
+        case .reverseChronological:
             self.init(key: key, ascending: false)
         }
     }
-
 }
 
-public extension NSUserDefaults {
+public extension UserDefaults {
     public subscript(key: String) -> AnyObject? {
-        return self.valueForKey(key)
+        return self.value(forKey: key) as AnyObject?
     }
 }
 
 public extension Set {
-    public var array: [Generator.Element] { return Array(self) }
+    public var array: [Iterator.Element] {
+        return Array(self)
+    }
 }
 
 public extension String {
 
-    public var range: Range<String.Index> {
-        return Range<String.Index>(start: self.startIndex, end: self.endIndex)
-    }
+//    public var range: Range<String.Index> {
+//        return (self.characters.indices)
+//    }
 
-    public func isBefore(string toString: String) -> Bool {
-        return self.compare(toString, options: NSStringCompareOptions.CaseInsensitiveSearch, range: self.range, locale: nil) == .OrderedAscending
-    }
+//    public func isBefore(string toString: String) -> Bool {
+//        return self.compare(toString, options: NSString.CompareOptions.caseInsensitiveSearch, range: self.range, locale: nil) == .orderedAscending
+//    }
 
 }

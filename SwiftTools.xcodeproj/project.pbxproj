@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8B4942571C8EAF67007F273A /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942511C8EAF67007F273A /* Other.swift */; };
 		8B4942581C8EAF67007F273A /* STStandardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942521C8EAF67007F273A /* STStandardExtensions.swift */; };
-		8B4942591C8EAF67007F273A /* STMultiThreadingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942531C8EAF67007F273A /* STMultiThreadingExtensions.swift */; };
 		8B49425A1C8EAF67007F273A /* STCoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */; };
 		8B49425B1C8EAF67007F273A /* STCloudKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */; };
 		8B49425C1C8EAF67007F273A /* STDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942561C8EAF67007F273A /* STDataSet.swift */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		8B4942511C8EAF67007F273A /* Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Other.swift; path = Misc/Other.swift; sourceTree = "<group>"; };
 		8B4942521C8EAF67007F273A /* STStandardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STStandardExtensions.swift; path = Extensions/STStandardExtensions.swift; sourceTree = "<group>"; };
-		8B4942531C8EAF67007F273A /* STMultiThreadingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STMultiThreadingExtensions.swift; path = Extensions/STMultiThreadingExtensions.swift; sourceTree = "<group>"; };
 		8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STCoreDataExtensions.swift; path = Extensions/STCoreDataExtensions.swift; sourceTree = "<group>"; };
 		8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STCloudKitExtensions.swift; path = Extensions/STCloudKitExtensions.swift; sourceTree = "<group>"; };
 		8B4942561C8EAF67007F273A /* STDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STDataSet.swift; path = DataSet/STDataSet.swift; sourceTree = "<group>"; };
@@ -51,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				8B4942521C8EAF67007F273A /* STStandardExtensions.swift */,
-				8B4942531C8EAF67007F273A /* STMultiThreadingExtensions.swift */,
 				8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */,
 				8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */,
 			);
@@ -124,11 +121,12 @@
 		8B9143531C8EA5A70088C8F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = JwitApps;
 				TargetAttributes = {
 					8B91435B1C8EA5A70088C8F5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -167,7 +165,6 @@
 				8B49425B1C8EAF67007F273A /* STCloudKitExtensions.swift in Sources */,
 				8B49425C1C8EAF67007F273A /* STDataSet.swift in Sources */,
 				8B4942571C8EAF67007F273A /* Other.swift in Sources */,
-				8B4942591C8EAF67007F273A /* STMultiThreadingExtensions.swift in Sources */,
 				8B4942581C8EAF67007F273A /* STStandardExtensions.swift in Sources */,
 				8B49425A1C8EAF67007F273A /* STCoreDataExtensions.swift in Sources */,
 			);
@@ -189,8 +186,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -237,8 +236,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -258,6 +259,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -269,6 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -282,6 +285,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -289,6 +293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -301,6 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.SwiftTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

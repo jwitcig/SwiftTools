@@ -12,6 +12,8 @@
     import Cocoa
 #endif
 
+import MapKit
+
 public extension Array {
     public subscript (safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
@@ -19,7 +21,8 @@ public extension Array {
 
     public subscript (safe range: Range<Int>) -> [Element]? {
         let elements = (range.lowerBound...range.upperBound).map { self[safe: $0] }
-        return elements.filter{$0==nil}.count > 0 ? nil : elements.map{$0!}
+        return elements.filter { $0 == nil }
+            .count > 0 ? nil : elements.map { $0! }
     }
 }
 
@@ -37,6 +40,10 @@ public extension Date {
     public func isBefore(date: Date) -> Bool {
         return compare(date) == .orderedAscending
     }
+    
+    public func isAfter(date: Date) -> Bool {
+        return compare(date) == .orderedAscending
+    }
 
     public func isSameDay(date: Date) -> Bool {
         return compare(date) == .orderedSame
@@ -44,7 +51,7 @@ public extension Date {
 
     public static func daysBetween(start: Date, end: Date) -> Int {
         return Calendar(identifier: Calendar.Identifier.gregorian)
-                .dateComponents([.day].set, from: start, to: end)
+                .dateComponents([Calendar.Component.day].set, from: start, to: end)
                 .day!
     }
 
@@ -65,20 +72,24 @@ public extension Date {
     }
 
     public func isBetween(firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
-        if isSameDay(date: firstDate) || isSameDay(date: secondDate) {
-            if inclusive { return true }
-            else { return false }
-        }
-        return firstDate.isBefore(date: self) && isBefore(date: secondDate)
+        return isSameDay(date: firstDate) || isSameDay(date: secondDate)
+            ? inclusive
+            : firstDate.isBefore(date: self) && secondDate.isAfter(date: self)
     }
 }
 
 public extension NSPredicate {
+    public enum Comparator: String {
+        case equals = "=="
+        case contains = "CONTAINS"
+        case containedIn = "IN"
+    }
+    
     public class var all: NSPredicate {
         return NSPredicate(value: true)
     }
 
-    public convenience init(key: String, comparator: PredicateComparator, value comparisonValue: AnyObject?) {
+    public convenience init(key: String, comparator: Comparator, value comparisonValue: AnyObject?) {
         guard let value = comparisonValue else {
             self.init(format: "\(key) \(comparator.rawValue) nil")
             return
@@ -88,6 +99,10 @@ public extension NSPredicate {
 }
 
 public extension NSSortDescriptor {
+    public enum Sort {
+        case chronological, reverseChronological
+    }
+    
     public convenience init(key: String, order: Sort) {
         switch order {
         case .chronological:
@@ -100,7 +115,7 @@ public extension NSSortDescriptor {
 
 public extension UserDefaults {
     public subscript(key: String) -> AnyObject? {
-        return self.value(forKey: key) as AnyObject?
+        return value(forKey: key) as AnyObject?
     }
 }
 
@@ -110,14 +125,35 @@ public extension Set {
     }
 }
 
+public func ==<T: Hashable>(lhs: T, rhs: T) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+}
+
+public extension NSLayoutConstraint {
+    func hasExceeded(_ verticalLimit: CGFloat) -> Bool {
+        return constant < verticalLimit
+    }
+}
+
+public extension UITextView {
+    public func recalculateVerticalAlignment() {
+        let calculatedY = (bounds.size.height - contentSize.height * zoomScale) / 2.0
+        contentInset = UIEdgeInsets(top: calculatedY < 0 ? 0 : calculatedY, left: 0, bottom: 0, right: 0)
+    }
+}
+
+public extension MKMapView {
+    func clear() {
+        removeAnnotations(annotations)
+    }
+}
+
 public extension String {
-
-//    public var range: Range<String.Index> {
-//        return (self.characters.indices)
-//    }
-
-//    public func isBefore(string toString: String) -> Bool {
-//        return self.compare(toString, options: NSString.CompareOptions.caseInsensitiveSearch, range: self.range, locale: nil) == .orderedAscending
-//    }
-
+    public func isBefore(_ toString: String) -> Bool {
+        return compare(toString) == .orderedAscending
+    }
+    
+    public func isAfter(_ toString: String) -> Bool {
+        return compare(toString) == .orderedDescending
+    }
 }

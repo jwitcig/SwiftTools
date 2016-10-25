@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B4942571C8EAF67007F273A /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942511C8EAF67007F273A /* Other.swift */; };
-		8B4942581C8EAF67007F273A /* STStandardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942521C8EAF67007F273A /* STStandardExtensions.swift */; };
-		8B49425A1C8EAF67007F273A /* STCoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */; };
-		8B49425B1C8EAF67007F273A /* STCloudKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */; };
-		8B49425C1C8EAF67007F273A /* STDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942561C8EAF67007F273A /* STDataSet.swift */; };
+		8B45EC441DBF39F2009BC6F9 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EC431DBF39F2009BC6F9 /* Structs.swift */; };
+		8B45EC461DBF3A37009BC6F9 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EC451DBF3A37009BC6F9 /* Process.swift */; };
+		8B45EC481DBF3AA7009BC6F9 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EC471DBF3AA7009BC6F9 /* Section.swift */; };
+		8B4942581C8EAF67007F273A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942521C8EAF67007F273A /* Extensions.swift */; };
+		8B49425A1C8EAF67007F273A /* CoreData-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942541C8EAF67007F273A /* CoreData-Extensions.swift */; };
+		8B49425B1C8EAF67007F273A /* CloudKit-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4942551C8EAF67007F273A /* CloudKit-Extensions.swift */; };
+		8B6F32A61DBFD87400A02754 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F32A51DBFD87400A02754 /* LocationHandler.swift */; };
 		8B9143601C8EA5A70088C8F5 /* SwiftTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B4942511C8EAF67007F273A /* Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Other.swift; path = Misc/Other.swift; sourceTree = "<group>"; };
-		8B4942521C8EAF67007F273A /* STStandardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STStandardExtensions.swift; path = Extensions/STStandardExtensions.swift; sourceTree = "<group>"; };
-		8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STCoreDataExtensions.swift; path = Extensions/STCoreDataExtensions.swift; sourceTree = "<group>"; };
-		8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STCloudKitExtensions.swift; path = Extensions/STCloudKitExtensions.swift; sourceTree = "<group>"; };
-		8B4942561C8EAF67007F273A /* STDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STDataSet.swift; path = DataSet/STDataSet.swift; sourceTree = "<group>"; };
+		8B45EC431DBF39F2009BC6F9 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		8B45EC451DBF3A37009BC6F9 /* Process.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		8B45EC471DBF3AA7009BC6F9 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8B4942521C8EAF67007F273A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions/Extensions.swift; sourceTree = "<group>"; };
+		8B4942541C8EAF67007F273A /* CoreData-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoreData-Extensions.swift"; path = "Extensions/CoreData-Extensions.swift"; sourceTree = "<group>"; };
+		8B4942551C8EAF67007F273A /* CloudKit-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CloudKit-Extensions.swift"; path = "Extensions/CloudKit-Extensions.swift"; sourceTree = "<group>"; };
+		8B6F32A51DBFD87400A02754 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		8B91435C1C8EA5A70088C8F5 /* SwiftTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTools.h; sourceTree = "<group>"; };
 		8B9143611C8EA5A70088C8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,20 +41,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B49424F1C8EAF04007F273A /* Data Set Comparison */ = {
-			isa = PBXGroup;
-			children = (
-				8B4942561C8EAF67007F273A /* STDataSet.swift */,
-			);
-			name = "Data Set Comparison";
-			sourceTree = "<group>";
-		};
 		8B4942501C8EAF19007F273A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8B4942521C8EAF67007F273A /* STStandardExtensions.swift */,
-				8B4942541C8EAF67007F273A /* STCoreDataExtensions.swift */,
-				8B4942551C8EAF67007F273A /* STCloudKitExtensions.swift */,
+				8B4942521C8EAF67007F273A /* Extensions.swift */,
+				8B4942541C8EAF67007F273A /* CoreData-Extensions.swift */,
+				8B4942551C8EAF67007F273A /* CloudKit-Extensions.swift */,
+				8B45EC431DBF39F2009BC6F9 /* Structs.swift */,
+				8B45EC451DBF3A37009BC6F9 /* Process.swift */,
+				8B45EC471DBF3AA7009BC6F9 /* Section.swift */,
+				8B6F32A51DBFD87400A02754 /* LocationHandler.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -76,8 +76,6 @@
 			children = (
 				8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */,
 				8B4942501C8EAF19007F273A /* Extensions */,
-				8B49424F1C8EAF04007F273A /* Data Set Comparison */,
-				8B4942511C8EAF67007F273A /* Other.swift */,
 				8B9143611C8EA5A70088C8F5 /* Info.plist */,
 			);
 			path = SwiftTools;
@@ -162,11 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B49425B1C8EAF67007F273A /* STCloudKitExtensions.swift in Sources */,
-				8B49425C1C8EAF67007F273A /* STDataSet.swift in Sources */,
-				8B4942571C8EAF67007F273A /* Other.swift in Sources */,
-				8B4942581C8EAF67007F273A /* STStandardExtensions.swift in Sources */,
-				8B49425A1C8EAF67007F273A /* STCoreDataExtensions.swift in Sources */,
+				8B45EC441DBF39F2009BC6F9 /* Structs.swift in Sources */,
+				8B49425B1C8EAF67007F273A /* CloudKit-Extensions.swift in Sources */,
+				8B4942581C8EAF67007F273A /* Extensions.swift in Sources */,
+				8B45EC481DBF3AA7009BC6F9 /* Section.swift in Sources */,
+				8B49425A1C8EAF67007F273A /* CoreData-Extensions.swift in Sources */,
+				8B6F32A61DBFD87400A02754 /* LocationHandler.swift in Sources */,
+				8B45EC461DBF3A37009BC6F9 /* Process.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -256,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

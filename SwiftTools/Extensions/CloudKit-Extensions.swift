@@ -30,8 +30,7 @@ public extension CKRecord {
     }
 
     public func referencesForName(_ name: String) -> Set<CKReference> {
-        let references = self[name] as? [CKReference]
-        return references != nil ? Set(references!) : Set()
+        return (self[name] as? [CKReference] ?? []).set
     }
 }
 
@@ -40,8 +39,12 @@ public extension Collection where Iterator.Element: CKRecord {
 }
 
 public extension Collection where Iterator.Element: CKRecordID {
-    public var recordNames: [String] { return map { $0.recordName } }
-    public var references: [CKReference] { return map { CKReference(recordID: $0, action: .none) } }
+    public var recordNames: [String] {
+        return map { $0.recordName }
+    }
+    public var references: [CKReference] {
+        return map { CKReference(recordID: $0, action: .none) }
+    }
 }
 
 public extension Collection where Iterator.Element: CKReference {

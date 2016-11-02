@@ -114,13 +114,6 @@ public protocol DictionaryStoring {
     var dictionary: Dictionary<Key, Value> { get set }
 }
 
-public extension DictionaryStoring {
-    init(dictionary: [Key: Value]) {
-        self.init()
-        self.dictionary = dictionary
-    }
-}
-
 import GameplayKit
 
 @available(iOS 9.0, *)

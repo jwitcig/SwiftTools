@@ -31,12 +31,12 @@ public extension NSManagedObjectContext {
         self.parent = parentManagedObjectContext
     }
 
-    func crossContextEquivalent<T: NSManagedObject>(object: T) -> T {
+    func crossContextEquivalent<T: NSManagedObject>(_ object: T) -> T {
         return self.object(with: object.objectID) as! T
     }
 
-    func crossContextEquivalents<T: NSManagedObject>(objects: [T]) -> [T] {
-        return objects.map { crossContextEquivalent(object: $0) }
+    func crossContextEquivalents<T: NSManagedObject>(_ objects: [T]) -> [T] {
+        return objects.map { crossContextEquivalent($0) }
     }
 
     class var currentThread: NSManagedObjectContext {
@@ -55,7 +55,7 @@ public extension NSManagedObjectContext {
         return newContext
     }
 
-    private static var threadContexts = [Thread.main: NSManagedObjectContext(parentContext: nil)]
+    fileprivate static var threadContexts = [Thread.main: NSManagedObjectContext(parentContext: nil)]
 }
 
 public extension Collection where Iterator.Element: NSManagedObject {

@@ -53,10 +53,10 @@ public extension Sequence where Iterator.Element == ProcessItem {
     }
 }
 
-public class Process {
-    public let items: [ProcessItem]
+open class Process {
+    open let items: [ProcessItem]
     
-    public var current: ProcessItem {
+    open var current: ProcessItem {
         didSet {
             formSwitched(current)
         }
@@ -83,7 +83,7 @@ public class Process {
         }
     }
     
-    public func next() {
+    open func next() {
         let newIndex = current.index + 1
         
         if newIndex < items.count {
@@ -97,12 +97,12 @@ public class Process {
         }
     }
     
-    public func previous() {
+    open func previous() {
         let newIndex = current.index > 0 ? current.index - 1 : 0
         current = items[newIndex]
     }
     
-    public func reset() {
+    open func reset() {
         current = items.first ?? current
         items.forEach { $0.clearForm() }
     }

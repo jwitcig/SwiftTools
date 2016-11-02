@@ -13,6 +13,14 @@
 #endif
 
 import MapKit
+import Messages
+
+infix operator |
+public func | (shouldCall: Bool, function: (()->Void)?) {
+    if shouldCall {
+        function?()
+    }
+}
 
 public extension Array {
     subscript(safe index: Int) -> Element? {
@@ -36,45 +44,57 @@ public extension Array where Element : Hashable {
     }
 }
 
+public extension Sequence where Iterator.Element == Date {
+    var chronological: [Date] {
+        return sorted()
+    }
+}
+
+public extension Dictionary {
+    public func merged(_ rhs: [Key: Value]) -> [Key: Value] {
+        var new = self
+        for (key, value) in rhs {
+            new.updateValue(value, forKey: key)
+        }
+        return new
+    }
+}
+
 public extension Date {
-    func isBefore(date: Date) -> Bool {
+    func isBefore(_ date: Date) -> Bool {
         return compare(date) == .orderedAscending
     }
     
-    func isAfter(date: Date) -> Bool {
+    func isAfter(_ date: Date) -> Bool {
         return compare(date) == .orderedAscending
     }
 
-    func isSameDay(date: Date) -> Bool {
+    func isSameDay(_ date: Date) -> Bool {
         return compare(date) == .orderedSame
     }
 
-    static func daysBetween(start: Date, end: Date) -> Int {
+    static func daysBetween(_ start: Date, end: Date) -> Int {
         return Calendar(identifier: Calendar.Identifier.gregorian)
                 .dateComponents([Calendar.Component.day].set, from: start, to: end)
                 .day!
     }
 
-    func daysBetween(endDate: Date) -> Int {
-        return Date.daysBetween(start: self, end: endDate)
+    func daysBetween(_ endDate: Date) -> Int {
+        return Date.daysBetween(self, end: endDate)
     }
 
-    static func daysBeforeToday(originalDate: Date) -> Int {
+    static func daysBeforeToday(_ originalDate: Date) -> Int {
         return originalDate.daysBeforeToday
     }
 
     var daysBeforeToday: Int {
-        return Date.daysBetween(start: self, end: Date())
+        return Date.daysBetween(self, end: Date())
     }
 
-    func sorted(dates: [Date]) -> [Date] {
-        return dates.sorted { $0.0.isBefore(date: $0.1) }
-    }
-
-    func isBetween(firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
-        return isSameDay(date: firstDate) || isSameDay(date: secondDate)
+    func isBetween(_ firstDate: Date, secondDate: Date, inclusive: Bool) -> Bool {
+        return isSameDay(firstDate) || isSameDay(secondDate)
             ? inclusive
-            : firstDate.isBefore(date: self) && secondDate.isAfter(date: self)
+            : firstDate.isBefore(self) && secondDate.isAfter(self)
     }
 }
 
@@ -156,4 +176,48 @@ public extension String {
     func isAfter(_ toString: String) -> Bool {
         return compare(toString) == .orderedDescending
     }
+}
+
+public extension UIScreen {
+    static var size: CGSize {
+        return UIScreen.main.bounds.size
+    }
+}
+
+@available(iOS 10.0, *)
+public extension MSMessage {
+    static func isFromCurrentDevice(message: MSMessage, conversation: MSConversation) -> Bool {
+        return message.senderParticipantIdentifier == conversation.localParticipantIdentifier
+    }
+}
+
+public extension String {
+    var int: Int? { return Int(self) }
+    var double: Double? { return Double(self) }
+    var bool: Bool? { return Bool(self) }
+}
+
+public extension Int {
+    var string: String? { return String(describing: self) }
+    var double: Double? { return Double(self) }
+    var cgFloat: CGFloat? { return CGFloat(self) }
+    var float: Float? { return Float(self) }
+}
+
+public extension Double {
+    var string: String? { return String(describing: self) }
+    var int: Int? { return Int(self) }
+    var cgFloat: CGFloat? { return CGFloat(self) }
+    var float: Float? { return Float(self) }
+}
+
+public extension CGFloat {
+    var string: String? { return String(describing: self) }
+    var int: Int? { return Int(self) }
+    var double: Double? { return Double(self) }
+    var float: Float? { return Float(self) }
+}
+
+public extension Bool {
+    var string: String? { return String(self) }
 }

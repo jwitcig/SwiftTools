@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2665F71DC9AE78004B953C /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2665F61DC9AE78004B953C /* Operators.swift */; };
 		8B9143601C8EA5A70088C8F5 /* SwiftTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8BBA39A51DBFE202009A2C69 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A01DBFE202009A2C69 /* LocationHandler.swift */; };
 		8BBA39A61DBFE202009A2C69 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA39A11DBFE202009A2C69 /* Process.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B2665F61DC9AE78004B953C /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		8B91435C1C8EA5A70088C8F5 /* SwiftTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B91435F1C8EA5A70088C8F5 /* SwiftTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTools.h; sourceTree = "<group>"; };
 		8B9143611C8EA5A70088C8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				8BBA39A91DBFE542009A2C69 /* CloudKit-Extensions.swift */,
 				8BBA39AA1DBFE542009A2C69 /* CoreData-Extensions.swift */,
 				8BBA39AB1DBFE542009A2C69 /* Extensions.swift */,
+				8B2665F61DC9AE78004B953C /* Operators.swift */,
 			);
 			name = Extensions;
 			path = ..;
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BBA39AD1DBFE542009A2C69 /* CoreData-Extensions.swift in Sources */,
+				8B2665F71DC9AE78004B953C /* Operators.swift in Sources */,
 				8BBA39A81DBFE202009A2C69 /* Structs.swift in Sources */,
 				8BBA39A71DBFE202009A2C69 /* Section.swift in Sources */,
 				8BBA39AC1DBFE542009A2C69 /* CloudKit-Extensions.swift in Sources */,
@@ -215,6 +219,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				"MTL_ENABLE_DEBUG_INFO[arch=*]" = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

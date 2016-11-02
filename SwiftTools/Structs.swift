@@ -112,9 +112,6 @@ public protocol DictionaryStoring {
     associatedtype Value
     
     var dictionary: Dictionary<Key, Value> { get set }
-    
-    init()
-    init(dictionary: [Key: Value])
 }
 
 public extension DictionaryStoring {

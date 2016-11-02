@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'SwiftTools/Classes/**/*'
-  s.resources = 'Pod/Assets/*'
+  # s.resources = 'Pod/Assets/*'
 
   s.frameworks = 'UIKit'
   s.module_name = 'SwiftTools'

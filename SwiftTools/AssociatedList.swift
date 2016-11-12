@@ -1,14 +1,12 @@
 //
-//  Section.swift
+//  AssociatedList.swift
 //  SwiftTools
 //
 //  Created by Jonah Witcig on 10/25/16.
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
-/* Section is a list with an assosiated object. */
-
-public protocol Section: Sequence, IteratorProtocol {
+public protocol AssociatedList: Sequence, IteratorProtocol {
     associatedtype ListType
     
     var count: Int { get set }
@@ -18,7 +16,7 @@ public protocol Section: Sequence, IteratorProtocol {
     init(elements: [ListType])
 }
 
-public extension Section {
+public extension AssociatedList {
     init() {
         self.init()
         self.elements = []

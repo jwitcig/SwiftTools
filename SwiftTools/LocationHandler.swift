@@ -8,8 +8,8 @@
 
 import CoreLocation
 
-open class LocationHandler: NSObject {
-    open static let shared = LocationHandler()
+public class LocationHandler: NSObject {
+    public static let shared = LocationHandler()
     
     fileprivate lazy var manager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -18,11 +18,11 @@ open class LocationHandler: NSObject {
         return manager
     }()
     
-    open var location: CLLocation?
+    public var location: CLLocation?
     
-    open var completionHandler: ((CLLocation?, NSError?)->Void)?
+    public var completionHandler: ((CLLocation?, NSError?)->Void)?
     
-    open func start(completionHandler handler: @escaping (CLLocation?, NSError?)->Void) {
+    public func start(completionHandler handler: @escaping (CLLocation?, NSError?)->Void) {
         completionHandler = handler
         
         guard let location = location else {

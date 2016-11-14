@@ -14,7 +14,7 @@ public protocol ViewAttachable {
 
 @available(iOS 9.0, *)
 public extension ViewAttachable {
-    func display(view: UIView) {
+    public func display(view: UIView) {
         superview.addSubview(view)
         
         view.widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true

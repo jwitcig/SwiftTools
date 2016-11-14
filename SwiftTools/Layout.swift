@@ -6,8 +6,22 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+@available(iOS 9.0, *)
 public protocol ViewAttachable {
+    var superview: UIView { get }
     func display(view: UIView)
+}
+
+@available(iOS 9.0, *)
+public extension ViewAttachable {
+    func display(view: UIView) {
+        superview.addSubview(view)
+        
+        view.widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
+        view.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+    }
 }
 
 public protocol Inset {

@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import UIKit
+
 public enum ProcessFormType: Int {
     case name, message, image, final
 }

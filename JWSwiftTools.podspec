@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = "SwiftTools"
+  s.name             = "JWSwiftTools"
   s.version          = "1.1.14"
   s.summary          = "Tools for Swift development."
   s.homepage         = "https://github.com/jwitcig/SwiftTools"
@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   # s.resources = 'Pod/Assets/*'
 
   s.frameworks = 'UIKit'
-  s.module_name = 'SwiftTools'
+  s.module_name = 'JWSwiftTools'
 end

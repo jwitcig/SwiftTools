@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import UIKit
+
 @available(iOS 9.0, *)
 public protocol ViewAttachable {
     var superview: UIView { get }

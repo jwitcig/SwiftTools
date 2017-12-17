@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import UIKit
+
 public extension String {
     public func isBefore(_ toString: String) -> Bool {
         return compare(toString) == .orderedAscending

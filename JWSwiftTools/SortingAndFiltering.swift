@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import Foundation
+
 public extension Date {
     public func isBefore(_ date: Date) -> Bool {
         return compare(date) == .orderedAscending

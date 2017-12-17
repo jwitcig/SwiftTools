@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import UIKit
+
 public extension UIScreen {
     public static var size: CGSize {
         return UIScreen.main.bounds.size

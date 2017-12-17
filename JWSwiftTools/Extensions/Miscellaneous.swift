@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import Foundation
+
 public extension UserDefaults {
     public subscript(key: String) -> AnyObject? {
         return value(forKey: key) as AnyObject?

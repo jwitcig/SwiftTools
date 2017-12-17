@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import Foundation
+
 public protocol LifeCycleable: class {
     var startTime: TimeInterval! { get set }
     var endTime: TimeInterval! { get set }

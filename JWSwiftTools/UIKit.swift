@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import UIKit
+
 public extension UITextView {
     public func recalculateVerticalAlignment() {
         let calculatedY = (bounds.size.height - contentSize.height * zoomScale) / 2.0

@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import Foundation
+
 public extension Collection {
    public subscript(safe index: Index) -> Iterator.Element? {
         guard index >= startIndex, index <= endIndex else { return nil }

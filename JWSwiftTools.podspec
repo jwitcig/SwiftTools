@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JWSwiftTools"
-  s.version          = "1.1.14"
+  s.version          = "1.1.15"
   s.summary          = "Tools for Swift development."
   s.homepage         = "https://github.com/jwitcig/SwiftTools"
   s.license          = 'Code is MIT.'

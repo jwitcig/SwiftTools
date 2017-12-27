@@ -112,8 +112,7 @@
 				8B2FD2DD1E03B63500911A43 /* UI.swift */,
 				8B2FD2DE1E03B63500911A43 /* UIKit.swift */,
 			);
-			name = JWSwiftTools;
-			path = SwiftTools;
+			path = JWSwiftTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
